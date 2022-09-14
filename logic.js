@@ -97,15 +97,15 @@ function game(games){
     }
 
     if(humanScore > computerScore){
-        console.log("Congratulations, you scored " + humanScore + " points! The computer scored " + computerScore + ". You win!");
+        console.log("Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".");
     }
     else if(humanScore < computerScore){
-        console.log("Sorry, you scored " + humanScore + " points. The computer scored " + computerScore + ". You lose.");
+        console.log("Sorry, you lose. Human: " + humanScore + ", Computer: " + computerScore + ".");
     }
     else {
-        console.log("Something either broke, or it was a draw!");
+        console.log("Something either broke, or it was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".");
     }   
 }
 
 // play games
-game(3);
+game(10);
