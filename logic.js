@@ -99,6 +99,8 @@ function game(games, playerChoice){
         }
     }
 
+    scoreText.textContent = `Current score: Human: ${humanScore} - Computer: ${computerScore}`;
+
     if(humanScore > computerScore){
         console.log("Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".");
         resultText.textContent = "Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".";
@@ -118,7 +120,8 @@ function game(games, playerChoice){
 
 const buttons = document.querySelectorAll('button');
 const resultText = document.querySelector('.result');
+const scoreText = document.querySelector('.score');
 
 buttons.forEach(button => button.addEventListener('click', function(e) {
-    game(1, e.target.textContent);
+    game(5, e.target.textContent);
 }));
