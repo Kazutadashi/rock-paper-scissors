@@ -79,26 +79,22 @@ function compareChoice(playerChoice, computerChoice){
 // print results
 // console.log(compareChoice(getPlayerChoice(), getComputerChoice()));
 
-function game(games, playerChoice){
+function playRound(playerChoice){
     
     console.log(`You chose ${playerChoice}.`)
     let humanScore = 0;
     let computerScore = 0;
+    let result = compareChoice(playerChoice.toLowerCase(), getComputerChoice());
 
-
-    for (let i = 0; i < games; i++) {
-        let result = compareChoice(playerChoice.toLowerCase(), getComputerChoice());
-        if(result === 1){
-            humanScore++;
-        }
-        else if(result === -1) {
-            computerScore++;
-        }
-        else {
-            continue;
-        }
+    if(result === 1){
+        humanScore++;
     }
+    else if(result === -1) {
+        computerScore++;
+    }
+}
 
+function decideWinner(){
     scoreText.textContent = `Current score: Human: ${humanScore} - Computer: ${computerScore}`;
 
     if(humanScore > computerScore){
@@ -123,5 +119,5 @@ const resultText = document.querySelector('.result');
 const scoreText = document.querySelector('.score');
 
 buttons.forEach(button => button.addEventListener('click', function(e) {
-    game(5, e.target.textContent);
+    playRound(e.target.textContent);
 }));
