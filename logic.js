@@ -80,9 +80,8 @@ function compareChoice(playerChoice, computerChoice){
 // console.log(compareChoice(getPlayerChoice(), getComputerChoice()));
 
 function game(games, playerChoice){
-    console.log(playerChoice);
-    console.log(games);
     
+    console.log(`You chose ${playerChoice}.`)
     let humanScore = 0;
     let computerScore = 0;
 
