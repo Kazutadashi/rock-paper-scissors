@@ -105,9 +105,12 @@ function game(games, playerChoice){
     else if(humanScore < computerScore){
         console.log("Sorry, you lose. Human: " + humanScore + ", Computer: " + computerScore + ".");
     }
-    else {
-        console.log("Something either broke, or it was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".");
-    }   
+    else if(humanScore === computerScore){
+        console.log("It was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".");
+    }
+    else{
+        console.log("Something unexpected occurred.");
+    }
 }
 
 const buttons = document.querySelectorAll('button');
