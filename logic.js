@@ -79,12 +79,15 @@ function compareChoice(playerChoice, computerChoice){
 // print results
 // console.log(compareChoice(getPlayerChoice(), getComputerChoice()));
 
-function game(games){
+function game(games, playerChoice){
+    console.log(playerChoice);
+    console.log(games);
+    
     let humanScore = 0;
     let computerScore = 0;
 
     for (let i = 0; i < games; i++) {
-        let result = compareChoice(getPlayerChoice(), getComputerChoice());
+        let result = compareChoice(playerChoice.toLowerCase(), getComputerChoice());
         if(result === 1){
             humanScore++;
         }
@@ -107,5 +110,8 @@ function game(games){
     }   
 }
 
-// play games
-game(10);
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => button.addEventListener('click', function(e) {
+    game(1, e.target.textContent);
+}));
