@@ -7,15 +7,15 @@ function getComputerChoice(){
 
     switch(computerChoice){
         case 0:
-            console.log("Rock");
+            console.log("Computer chose rock.");
             return 0;
             break;
         case 1:
-            console.log("Paper");
+            console.log("Computer chose paper.");
             return 1;
             break;
         case 2:
-            console.log("Scissors");
+            console.log("Computer chose scissors.");
             return 2;
             break;
         }
@@ -85,6 +85,7 @@ function game(games, playerChoice){
     let humanScore = 0;
     let computerScore = 0;
 
+
     for (let i = 0; i < games; i++) {
         let result = compareChoice(playerChoice.toLowerCase(), getComputerChoice());
         if(result === 1){
@@ -100,12 +101,15 @@ function game(games, playerChoice){
 
     if(humanScore > computerScore){
         console.log("Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".");
+        resultText.textContent = "Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".";
     }
     else if(humanScore < computerScore){
         console.log("Sorry, you lose. Human: " + humanScore + ", Computer: " + computerScore + ".");
+        resultText.textContent = "Sorry, you lose. Human: " + humanScore + ", Computer: " + computerScore + ".";
     }
     else if(humanScore === computerScore){
         console.log("It was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".");
+        resultText.textContent = "It was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".";
     }
     else{
         console.log("Something unexpected occurred.");
@@ -113,6 +117,7 @@ function game(games, playerChoice){
 }
 
 const buttons = document.querySelectorAll('button');
+const resultText = document.querySelector('.result');
 
 buttons.forEach(button => button.addEventListener('click', function(e) {
     game(1, e.target.textContent);
