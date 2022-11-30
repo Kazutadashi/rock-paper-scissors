@@ -30,7 +30,7 @@ function getPlayerChoice(){
 // rock is 0, paper is 1, scissors is 2
 // return 1 for win, 0 for draw, -1 for loss
 // does not validate user input, expects correct input
-function decideWinner(playerChoice, computerChoice){
+function decideRoundWinner(playerChoice, computerChoice){
 
     if (playerChoice === "rock") {
         switch(computerChoice) {
@@ -82,7 +82,8 @@ function decideWinner(playerChoice, computerChoice){
 function playRound(playerChoice){
     
     console.log(`You chose ${playerChoice}.`)
-    let result = decideWinner(playerChoice.toLowerCase(), getComputerChoice());
+    let result = decideRoundWinner(playerChoice.toLowerCase(), getComputerChoice());
+    rounds += 1;
 
     if(result === 1){
         return "human";
@@ -90,25 +91,31 @@ function playRound(playerChoice){
     else if(result === -1) {
         return "computer";
     }
+
+
 }
 
-function checkFinalScore(){
+function decideFinalWinner(rounds, gameLength){
 
-    if(humanScore > computerScore){
-        console.log("Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".");
-        resultText.textContent = "Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".";
+    if (rounds === gameLength) {
+        // determine winner after gameLength amount of rounds have been reached
+        if(humanScore > computerScore){
+            console.log("Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".");
+            resultText.textContent = "Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".";
+        }
+        else if(humanScore < computerScore){
+            console.log("Sorry, you lose. Human: " + humanScore + ", Computer: " + computerScore + ".");
+            resultText.textContent = "Sorry, you lose. Human: " + humanScore + ", Computer: " + computerScore + ".";
+        }
+        else if(humanScore === computerScore){
+            console.log("It was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".");
+            resultText.textContent = "It was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".";
+        }
+        else{
+            console.log("Something unexpected occurred.");
+        }
     }
-    else if(humanScore < computerScore){
-        console.log("Sorry, you lose. Human: " + humanScore + ", Computer: " + computerScore + ".");
-        resultText.textContent = "Sorry, you lose. Human: " + humanScore + ", Computer: " + computerScore + ".";
-    }
-    else if(humanScore === computerScore){
-        console.log("It was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".");
-        resultText.textContent = "It was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".";
-    }
-    else{
-        console.log("Something unexpected occurred.");
-    }
+    
 }
 
 function updateScoreboard(winner){
@@ -123,13 +130,14 @@ function updateScoreboard(winner){
     scoreText.textContent = `Current score: Human: ${humanScore} - Computer: ${computerScore}`;
 }
 
+
 const buttons = document.querySelectorAll('button');
 const resultText = document.querySelector('.result');
 const scoreText = document.querySelector('.score');
 
 let humanScore = 0;
 let computerScore = 0;
-
+let rounds = 0;
 
 
 buttons.forEach(button => button.addEventListener('click', 
@@ -138,4 +146,5 @@ buttons.forEach(button => button.addEventListener('click',
         
         let winner = playRound(e.target.textContent);
         updateScoreboard(winner);
+        decideFinalWinner(rounds, 5);
 }));
