@@ -30,7 +30,7 @@ function getPlayerChoice(){
 // rock is 0, paper is 1, scissors is 2
 // return 1 for win, 0 for draw, -1 for loss
 // does not validate user input, expects correct input
-function compareChoice(playerChoice, computerChoice){
+function decideWinner(playerChoice, computerChoice){
 
     if (playerChoice === "rock") {
         switch(computerChoice) {
@@ -82,20 +82,17 @@ function compareChoice(playerChoice, computerChoice){
 function playRound(playerChoice){
     
     console.log(`You chose ${playerChoice}.`)
-    let humanScore = 0;
-    let computerScore = 0;
-    let result = compareChoice(playerChoice.toLowerCase(), getComputerChoice());
+    let result = decideWinner(playerChoice.toLowerCase(), getComputerChoice());
 
     if(result === 1){
-        humanScore++;
+        return "human";
     }
     else if(result === -1) {
-        computerScore++;
+        return "computer";
     }
 }
 
-function decideWinner(){
-    scoreText.textContent = `Current score: Human: ${humanScore} - Computer: ${computerScore}`;
+function checkFinalScore(){
 
     if(humanScore > computerScore){
         console.log("Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".");
@@ -114,10 +111,31 @@ function decideWinner(){
     }
 }
 
+function updateScoreboard(winner){
+
+    if (winner === "human"){
+        humanScore += 1;
+    }
+    else if (winner === "computer"){
+        computerScore += 1;
+    }
+
+    scoreText.textContent = `Current score: Human: ${humanScore} - Computer: ${computerScore}`;
+}
+
 const buttons = document.querySelectorAll('button');
 const resultText = document.querySelector('.result');
 const scoreText = document.querySelector('.score');
 
-buttons.forEach(button => button.addEventListener('click', function(e) {
-    playRound(e.target.textContent);
+let humanScore = 0;
+let computerScore = 0;
+
+
+
+buttons.forEach(button => button.addEventListener('click', 
+
+    function(e) {    
+        
+        let winner = playRound(e.target.textContent);
+        updateScoreboard(winner);
 }));
