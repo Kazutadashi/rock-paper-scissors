@@ -1,3 +1,8 @@
+p {
+    padding: 0px 0px 50px 50px;
+    /* this is trash and needs to be fixed*/
+}
+
 button {
     border-radius: 0px;
     padding: 20px;
@@ -13,9 +18,9 @@ button:hover {
 
 .buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    column-gap: 100px;
+    
 }
 
 .result {
@@ -25,4 +30,11 @@ button:hover {
     padding: 100px 0px 0px 0px;
     font-size: 50px;
     white-space: pre;
+    flex-direction: column;
 }
+
+.choices {
+    display: flex;
+    justify-content: space-around;
+}
+
