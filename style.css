@@ -1,0 +1,28 @@
+button {
+    border-radius: 0px;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    font-size: 40px;
+    transition-duration: 0.4;
+}
+
+button:hover {
+    background-color: lightgray;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 100px;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0px 0px 0px;
+    font-size: 50px;
+    white-space: pre;
+}

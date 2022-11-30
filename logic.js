@@ -101,15 +101,15 @@ function decideFinalWinner(rounds, gameLength){
         // determine winner after gameLength amount of rounds have been reached
         if(humanScore > computerScore){
             console.log("Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".");
-            resultText.textContent = "Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".";
+            resultText.textContent = "Congratulations, you win!\r\nHuman: " + humanScore + ", Computer: " + computerScore;
         }
         else if(humanScore < computerScore){
             console.log("Sorry, you lose. Human: " + humanScore + ", Computer: " + computerScore + ".");
-            resultText.textContent = "Sorry, you lose. Human: " + humanScore + ", Computer: " + computerScore + ".";
+            resultText.textContent = "Sorry, you lose.\r\nHuman: " + humanScore + ", Computer: " + computerScore;
         }
         else if(humanScore === computerScore){
             console.log("It was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".");
-            resultText.textContent = "It was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".";
+            resultText.textContent = "It was a draw!\r\nHuman: " + humanScore + ", Computer: " + computerScore;
         }
         else{
             console.log("Something unexpected occurred.");
