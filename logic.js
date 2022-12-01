@@ -83,7 +83,9 @@ function playRound(playerChoice){
     
     console.log(`You chose ${playerChoice}.`)
     let result = decideRoundWinner(playerChoice.toLowerCase(), getComputerChoice());
+    
     rounds += 1;
+    
 
     if(result === 1){
         return "human";
@@ -134,6 +136,8 @@ function updateScoreboard(winner){
 const buttons = document.querySelectorAll('button');
 const resultText = document.querySelector('.result');
 const scoreText = document.querySelector('.score');
+const humanChoiceText = document.querySelector('.player-choice');human
+const computerChoiceText = document.querySelector('.computer-choice');
 
 let humanScore = 0;
 let computerScore = 0;

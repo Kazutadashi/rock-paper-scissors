@@ -1,6 +1,5 @@
-p {
-    padding: 0px 0px 50px 50px;
-    /* this is trash and needs to be fixed*/
+* {
+    border: 1px dotted red;
 }
 
 button {
@@ -35,6 +34,7 @@ button:hover {
 
 .choices {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    width: 100%;
 }
 
