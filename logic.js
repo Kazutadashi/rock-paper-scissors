@@ -97,8 +97,6 @@ function playRound(playerChoice){
             break;
         }
 
-
-
     console.log(`You chose ${playerChoice}.`)
     
     
@@ -117,25 +115,26 @@ function playRound(playerChoice){
 
 function decideFinalWinner(rounds, gameLength){
 
+    roundText.textContent = `${rounds}, ${gameLength}, ${rounds === gameLength}`;
+
     if (rounds === gameLength) {
+        const finalMessage = document.createElement('p');
+        roundText.textContent = "A winner has been determined.";
+        document.querySelector('.result').append(finalMessage);
         // determine winner after gameLength amount of rounds have been reached
         if(humanScore > computerScore){
-            console.log("Congratulations, you win! Human: " + humanScore + ", Computer: " + computerScore + ".");
-            resultText.textContent = "Congratulations, you win!\r\nHuman: " + humanScore + ", Computer: " + computerScore;
+            finalMessage.textContent = "Congratulations, you win!";
         }
         else if(humanScore < computerScore){
-            console.log("Sorry, you lose. Human: " + humanScore + ", Computer: " + computerScore + ".");
-            resultText.textContent = "Sorry, you lose.\r\nHuman: " + humanScore + ", Computer: " + computerScore;
+            finalMessage.textContent = "Sorry, you lose.";
         }
         else if(humanScore === computerScore){
-            console.log("It was a draw! Human: " + humanScore + ", Computer: " + computerScore + ".");
-            resultText.textContent = "It was a draw!\r\nHuman: " + humanScore + ", Computer: " + computerScore;
+            finalMessage.textContent = "It was a draw!"   
         }
         else{
             console.log("Something unexpected occurred.");
         }
     }
-    
 }
 
 function updateScoreboard(winner){
@@ -152,10 +151,12 @@ function updateScoreboard(winner){
 
 
 const buttons = document.querySelectorAll('button');
-const resultText = document.querySelector('.round');
+const roundText = document.querySelector('.round');
 const scoreText = document.querySelector('.score');
 const humanChoiceText = document.querySelector('.player-choice');
 const computerChoiceText = document.querySelector('.computer-choice');
+const resultsBox = document.querySelector('.results');
+console.log(document.querySelector('.result'));
 
 let humanScore = 0;
 let computerScore = 0;

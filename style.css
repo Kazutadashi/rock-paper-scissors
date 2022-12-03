@@ -29,7 +29,6 @@ button:hover {
     width: 100%;
     justify-content: center;
     align-items: center;
-    padding: 100px 0px 0px 0px;
     font-size: 50px;
     white-space: pre;
     flex-direction: column;
