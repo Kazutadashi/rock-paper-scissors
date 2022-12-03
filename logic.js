@@ -35,39 +35,39 @@ function decideRoundWinner(playerChoice, computerChoice){
     if (playerChoice === "rock") {
         switch(computerChoice) {
             case 0:
-                 console.log("Computer chose Rock. Its a draw!");
+                 roundText.textContent = "Computer chose Rock. Its a draw!";
                  return 0;
             case 1:
-                 console.log("Computer chose Paper. You lose! :(");
+                 roundText.textContent = "Computer chose Paper. You lose! :(";
                  return -1;
             case 2:
-                 console.log("Computer chose scissors. You win! :)");
+                 roundText.textContent = "Computer chose scissors. You win! :)";
                  return 1;
         }
     }
     else if (playerChoice === "paper") {
         switch(computerChoice) {
             case 0:
-                 console.log("Computer chose Rock. You win! :)");
+                 roundText.textContent = "Computer chose Rock. You win! :)";
                  return 1;
             case 1:
-                 console.log("Computer chose Paper. Its a draw!");
+                 roundText.textContent = "Computer chose Paper. Its a draw!";
                  return 0;
             case 2:
-                 console.log("Computer chose scissors. You lose! :(");
+                 roundText.textContent = "Computer chose scissors. You lose! :(";
                  return -1;
         }
     }
     else if (playerChoice === "scissors") {
         switch(computerChoice) {
             case 0:
-                 console.log("Computer chose Rock. You lose! :(");
+                 roundText.textContent = "Computer chose Rock. You lose! :(";
                  return -1;
             case 1:
-                 console.log("Computer chose Paper. You win! :)");
+                 roundText.textContent = "Computer chose Paper. You win! :)";
                  return 1;
             case 2:
-                 console.log("Computer chose scissors. Its a draw!");
+                 roundText.textContent = "Computer chose scissors. Its a draw!";
                  return 0;
         }
     }
@@ -115,11 +115,11 @@ function playRound(playerChoice){
 
 function decideFinalWinner(rounds, gameLength){
 
-    roundText.textContent = `${rounds}, ${gameLength}, ${rounds === gameLength}`;
+    //roundText.textContent = `${rounds}, ${gameLength}, ${rounds === gameLength}`;
 
     if (rounds === gameLength) {
         const finalMessage = document.createElement('p');
-        roundText.textContent = "A winner has been determined.";
+        //roundText.textContent = "A winner has been determined.";
         document.querySelector('.result').append(finalMessage);
         // determine winner after gameLength amount of rounds have been reached
         if(humanScore > computerScore){
