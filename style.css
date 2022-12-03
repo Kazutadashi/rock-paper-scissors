@@ -2,6 +2,7 @@
     border: 1px dotted red;
 }
 
+
 button {
     border-radius: 0px;
     padding: 20px;
@@ -38,3 +39,7 @@ button:hover {
     width: 100%;
 }
 
+.random {
+    display: flex;
+    justify-content: space-between;
+}

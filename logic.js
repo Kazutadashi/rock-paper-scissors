@@ -81,8 +81,14 @@ function decideRoundWinner(playerChoice, computerChoice){
 
 function playRound(playerChoice){
     
+    let computerChoice = getComputerChoice();
+    let result = decideRoundWinner(playerChoice.toLowerCase(), computerChoice);
+    humanChoiceText.textContent = `You chose ${playerChoice}`;
+    computerChoiceText.textContent = `Computer chose ${computerChoice}`;
+
+
     console.log(`You chose ${playerChoice}.`)
-    let result = decideRoundWinner(playerChoice.toLowerCase(), getComputerChoice());
+    
     
     rounds += 1;
     
@@ -136,7 +142,7 @@ function updateScoreboard(winner){
 const buttons = document.querySelectorAll('button');
 const resultText = document.querySelector('.result');
 const scoreText = document.querySelector('.score');
-const humanChoiceText = document.querySelector('.player-choice');human
+const humanChoiceText = document.querySelector('.player-choice');
 const computerChoiceText = document.querySelector('.computer-choice');
 
 let humanScore = 0;
