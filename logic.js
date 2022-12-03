@@ -84,7 +84,19 @@ function playRound(playerChoice){
     let computerChoice = getComputerChoice();
     let result = decideRoundWinner(playerChoice.toLowerCase(), computerChoice);
     humanChoiceText.textContent = `You chose ${playerChoice}`;
-    computerChoiceText.textContent = `Computer chose ${computerChoice}`;
+
+    switch(computerChoice){
+        case 0:
+            computerChoiceText.textContent = "Computer chose Rock";
+            break;
+        case 1:
+            computerChoiceText.textContent = "Computer chose Paper";
+            break;
+        case 2:
+            computerChoiceText.textContent = "Computer chose Scissors";
+            break;
+        }
+
 
 
     console.log(`You chose ${playerChoice}.`)
@@ -140,7 +152,7 @@ function updateScoreboard(winner){
 
 
 const buttons = document.querySelectorAll('button');
-const resultText = document.querySelector('.result');
+const resultText = document.querySelector('.round');
 const scoreText = document.querySelector('.score');
 const humanChoiceText = document.querySelector('.player-choice');
 const computerChoiceText = document.querySelector('.computer-choice');
