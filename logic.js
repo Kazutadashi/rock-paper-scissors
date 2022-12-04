@@ -113,11 +113,11 @@ function playRound(playerChoice){
 
 }
 
-function decideFinalWinner(rounds, gameLength){
+function decideFinalWinner(gameLength){
 
     //roundText.textContent = `${rounds}, ${gameLength}, ${rounds === gameLength}`;
 
-    if (rounds === gameLength) {
+    if (humanScore === gameLength || computerScore === gameLength) {
         const finalMessage = document.createElement('p');
         //roundText.textContent = "A winner has been determined.";
         document.querySelector('.result').append(finalMessage);
@@ -145,10 +145,6 @@ function updateScoreboard(winner){
     else if (winner === "computer"){
         computerScore += 1;
     }
-    else {
-        computerScore += 1;
-        humanScore += 1;
-    }
 
     scoreText.textContent = `First to ${gameLength}. Current score: Human: ${humanScore} - Computer: ${computerScore}`;
 }
@@ -175,5 +171,5 @@ buttons.forEach(button => button.addEventListener('click',
         
         let winner = playRound(e.target.textContent);
         updateScoreboard(winner);
-        decideFinalWinner(rounds, gameLength);
+        decideFinalWinner(gameLength);
 }));
