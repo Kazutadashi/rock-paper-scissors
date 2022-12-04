@@ -123,10 +123,10 @@ function decideFinalWinner(rounds, gameLength){
         document.querySelector('.result').append(finalMessage);
         // determine winner after gameLength amount of rounds have been reached
         if(humanScore > computerScore){
-            finalMessage.textContent = "Congratulations, you win!";
+            finalMessage.textContent = "Congratulations, you win this match!";
         }
         else if(humanScore < computerScore){
-            finalMessage.textContent = "Sorry, you lose.";
+            finalMessage.textContent = "Sorry, you lose this match.";
         }
         else if(humanScore === computerScore){
             finalMessage.textContent = "It was a draw!"   
@@ -145,8 +145,12 @@ function updateScoreboard(winner){
     else if (winner === "computer"){
         computerScore += 1;
     }
+    else {
+        computerScore += 1;
+        humanScore += 1;
+    }
 
-    scoreText.textContent = `Current score: Human: ${humanScore} - Computer: ${computerScore}`;
+    scoreText.textContent = `First to ${gameLength}. Current score: Human: ${humanScore} - Computer: ${computerScore}`;
 }
 
 
@@ -156,6 +160,8 @@ const scoreText = document.querySelector('.score');
 const humanChoiceText = document.querySelector('.player-choice');
 const computerChoiceText = document.querySelector('.computer-choice');
 const resultsBox = document.querySelector('.results');
+const gameLength = 5;
+
 console.log(document.querySelector('.result'));
 
 let humanScore = 0;
@@ -169,5 +175,5 @@ buttons.forEach(button => button.addEventListener('click',
         
         let winner = playRound(e.target.textContent);
         updateScoreboard(winner);
-        decideFinalWinner(rounds, 5);
+        decideFinalWinner(rounds, gameLength);
 }));
