@@ -110,7 +110,6 @@ function playRound(playerChoice){
         return "computer";
     }
 
-
 }
 
 function decideFinalWinner(gameLength){
